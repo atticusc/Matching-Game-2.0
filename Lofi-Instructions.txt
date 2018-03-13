@@ -1,0 +1,19 @@
+After creating the game things to add could bee
+1. Start and end screen
+2. Mario music from the actual game
+3. Have a end game card if it is matched with its other
+4.Score mode
+5. Time attack 3 mins to clear the board
+6. Free play with timer
+
+Matching Game Instructions
+
+Start screen
+1. Create the board
+2. Set each card on the board, face down
+3. If the card clcked, flip over
+4. Click a second card, flip it over
+5. If the faces of both cards match remove the cards. If the faces do not 
+match flip them back over
+6. Repeat from step 3 untill all cards are removed
+7. End game play again
