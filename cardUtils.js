@@ -51,7 +51,7 @@ function dealCards(card, cols) {
 }
 
 function drawDeck(arrOfCards) {
-  const cols = Math.floor(canvasSize.width/ (cardInfo.width + gutter))
+  var cols = Math.floor(canvasSize.width/ (cardInfo.width + gutter))
   arrOfCards.forEach(card => dealCards(card, cols))
 }
 
