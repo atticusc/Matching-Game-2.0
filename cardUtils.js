@@ -46,9 +46,9 @@ function drawCard(card, x, y, cardWidth, cardHeight, cardStroke) {
 }
 
 function drawDeck(arrOfCards) {
-  const cols = canvasSize.width/ (cardInfo.width + gutter)
+  const cols = Math.floor(canvasSize.width/ (cardInfo.width + gutter))
   arrOfCards.forEach(function(card) {
-    var loc = cardLayout(card.id, Math.floor(cols))
+    var loc = cardLayout(card.id, cols)
     drawCard(card, loc.x, loc.y, cardInfo.width, cardInfo.height, cardInfo.stroke)
   })
 }
