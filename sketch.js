@@ -11,10 +11,11 @@ var canvasSize= {width:500,height:500}
 
 function setup() {
   createCanvas(canvasSize.width,canvasSize.height);
-}
-function draw() {
   sceneMap[currentScene].draw();
   
+}
+function draw() {
+
 }
 function mousePressed(){
   sceneMap[currentScene].mousePressed();

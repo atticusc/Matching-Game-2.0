@@ -36,14 +36,18 @@ function drawCard(card,x,y,cardWidth,cardHeight,cardStroke){
 }
 
 function drawDeck(arrOfCards){
-    console.log(arrOfCards.length)
+  console.log('cardInfo', cardInfo)
+  console.log('arrOfCards.length', arrOfCards.length)
+  console.log('canvasSize', canvasSize)
+
     arrOfCards.forEach(function(card){
        var loc=cardLayout(card.id)
+      console.log(card,loc.x,loc.y,cardInfo.width,cardInfo.height,cardInfo.stroke)
        drawCard(card,loc.x,loc.y,cardInfo.width,cardInfo.height,cardInfo.stroke)
    })
 }
 function cardLayout(id,cardsPerRow){
-   
+
     var x,y;
     if(id<=4){
     x=id*cardInfo.width+10+id*10

@@ -5,7 +5,7 @@ startScreen.demoCard=makeCard(0,0,true,false)
 startScreen.demoDeck=makeDeck(10)
 
 startScreen.mousePressed = function(){
-    currentScene="inGame"
+    // currentScene="inGame"
 }
 startScreen.draw = function(){
     background('lightblue');
@@ -19,6 +19,6 @@ startScreen.keyPressed = function(){
     console.log("hello")
     if(key === 'D'){
       startScreen.dKey= true;
-      
+
     }
 }
