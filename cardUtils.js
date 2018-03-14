@@ -4,6 +4,8 @@ var cardInfo = {
   stroke: 2
 }
 
+var gutter = 10
+
 function makeCard(id, face, faceUp, matched) {
   if (faceUp === undefined) {
     faceUp = false
@@ -44,33 +46,19 @@ function drawCard(card, x, y, cardWidth, cardHeight, cardStroke) {
 }
 
 function drawDeck(arrOfCards) {
-  console.log('cardInfo', cardInfo)
-  console.log('arrOfCards.length', arrOfCards.length)
-  console.log('canvasSize', canvasSize)
-
-  const cols = canvasSize.width / cardInfo.width
-
-  console.log('cols', cols)
-
+  const cols = canvasSize.width/ (cardInfo.width + gutter)
   arrOfCards.forEach(function(card) {
-    var loc = cardLayout(card.id)
-
-    console.log(card, loc.x, loc.y, cardInfo.width, cardInfo.height, cardInfo.stroke)
-
+    var loc = cardLayout(card.id, Math.floor(cols))
     drawCard(card, loc.x, loc.y, cardInfo.width, cardInfo.height, cardInfo.stroke)
   })
 }
-function cardLayout(id, cardsPerRow) {
 
+function cardLayout(id, cardsPerRow) {
   var x,
-    y;
-  if (id <= 4) {
-    x = id * cardInfo.width + 10 + id * 10
-    y = height / 2;
-    return {x: x, y: y}
-  } else {
-    x = id * cardInfo.width - 400
-    y = height / 2 + 150;
-    return {x: x, y: y}
-  }
+  y,
+  row = Math.floor(id/cardsPerRow),
+  index = id > cardsPerRow-1 ? id%cardsPerRow : id
+  x = (index * cardInfo.width) + (gutter * index)
+  y = (cardInfo.height * row) + (gutter * row)
+  return {x: x , y: y}
 }

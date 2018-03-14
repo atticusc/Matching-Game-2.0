@@ -12,7 +12,7 @@ var canvasSize= {width:500,height:500}
 function setup() {
   createCanvas(canvasSize.width,canvasSize.height);
   sceneMap[currentScene].draw();
-  
+
 }
 function draw() {
 
