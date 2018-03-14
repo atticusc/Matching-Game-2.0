@@ -1,8 +1,9 @@
+var no_cards = 10
 var startScreen = {};
 startScreen.dKey = false;
 startScreen.screenText = "Scene: StartScreen!"
 startScreen.demoCard = makeCard(0, 0, true, false)
-startScreen.demoDeck = makeDeck(10)
+startScreen.demoDeck = makeDeck(no_cards)
 
 startScreen.mousePressed = function() {
   currentScene = "inGame"
