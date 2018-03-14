@@ -54,11 +54,10 @@ function drawDeck(arrOfCards) {
 }
 
 function cardLayout(id, cardsPerRow) {
-  var x,
-  y,
-  row = Math.floor(id/cardsPerRow),
-  index = id > cardsPerRow-1 ? id%cardsPerRow : id
-  x = (index * cardInfo.width) + (gutter * index)
-  y = (cardInfo.height * row) + (gutter * row)
+  var row = Math.floor(id/cardsPerRow),
+  var index = id > cardsPerRow-1 ? id%cardsPerRow : id
+
+  var x = (index * cardInfo.width) + (gutter * index)
+  var y = (cardInfo.height * row) + (gutter * row)
   return {x: x , y: y}
 }

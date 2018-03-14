@@ -1,4 +1,4 @@
-var no_cards = 10
+var no_cards = 20
 var startScreen = {};
 startScreen.dKey = false;
 startScreen.screenText = "Scene: StartScreen!"
