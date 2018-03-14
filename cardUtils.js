@@ -45,17 +45,19 @@ function drawCard(card, x, y, cardWidth, cardHeight, cardStroke) {
   pop();
 }
 
+function dealCards(card, cols) {
+  var loc = cardLayout(card.id, cols)
+  drawCard(card, loc.x, loc.y, cardInfo.width, cardInfo.height, cardInfo.stroke)
+}
+
 function drawDeck(arrOfCards) {
   const cols = Math.floor(canvasSize.width/ (cardInfo.width + gutter))
-  arrOfCards.forEach(function(card) {
-    var loc = cardLayout(card.id, cols)
-    drawCard(card, loc.x, loc.y, cardInfo.width, cardInfo.height, cardInfo.stroke)
-  })
+  arrOfCards.forEach(card => dealCards(card, cols))
 }
 
 function cardLayout(id, cardsPerRow) {
   var row = Math.floor(id/cardsPerRow)
-  var index = id > cardsPerRow-1 ? id%cardsPerRow : id
+  var index = id%cardsPerRow
 
   var x = (index * cardInfo.width) + (gutter * index)
   var y = (cardInfo.height * row) + (gutter * row)
