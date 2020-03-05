@@ -45,20 +45,21 @@ function drawCard(card, x, y, cardWidth, cardHeight, cardStroke) {
   pop();
 }
 
+function dealCards(card, cols) {
+  var loc = cardLayout(card.id, cols)
+  drawCard(card, loc.x, loc.y, cardInfo.width, cardInfo.height, cardInfo.stroke)
+}
+
 function drawDeck(arrOfCards) {
-  const cols = canvasSize.width/ (cardInfo.width + gutter)
-  arrOfCards.forEach(function(card) {
-    var loc = cardLayout(card.id, Math.floor(cols))
-    drawCard(card, loc.x, loc.y, cardInfo.width, cardInfo.height, cardInfo.stroke)
-  })
+  var cols = Math.floor(canvasSize.width/ (cardInfo.width + gutter))
+  arrOfCards.forEach(card => dealCards(card, cols))
 }
 
 function cardLayout(id, cardsPerRow) {
-  var x,
-  y,
-  row = Math.floor(id/cardsPerRow),
-  index = id > cardsPerRow-1 ? id%cardsPerRow : id
-  x = (index * cardInfo.width) + (gutter * index)
-  y = (cardInfo.height * row) + (gutter * row)
+  var row = Math.floor(id/cardsPerRow)
+  var index = id%cardsPerRow
+
+  var x = (index * cardInfo.width) + (gutter * index)
+  var y = (cardInfo.height * row) + (gutter * row)
   return {x: x , y: y}
 }
